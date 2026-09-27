@@ -1,507 +1,1203 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ASA Sociedade de Crédito Direto S.A. — Crédito com Tecnologia e Transparência</title>
-<meta name="description" content="ASA Sociedade de Crédito Direto S.A. — CNPJ 48.703.388/0001-13. Soluções de crédito digital com tecnologia, segurança e transparência. São Paulo, SP.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --azul:#0A2540;
-    --azul-2:#123B63;
-    --verde:#00C389;
-    --verde-esc:#009E6E;
-    --cinza:#5B6B7B;
-    --cinza-claro:#F4F7FA;
-    --branco:#FFFFFF;
-    --borda:#E3E9EF;
-    --amarelo:#FFB020;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Inter',sans-serif;color:var(--azul);background:var(--branco);line-height:1.6}
-  h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.2}
-  a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
-  .container{max-width:1140px;margin:0 auto;padding:0 24px}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do Cliente — Atendimento & Suporte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --green: #00e676;
+            --green-light: #39ff14;
+            --green-dark: #00c853;
+            --green-glow: rgba(57, 255, 20, 0.35);
+            --black: #ffffff;
+            --black-light: #f0fdf4;
+            --black-soft: #dcfce7;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+            --gray-light: #fafafa;
+            --gray-dark: #888888;
+            --text: #064e3b;
+            --text-light: #065f46;
+            --text-muted: #10b981;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.15), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --radius: 16px;
+            --radius-sm: 8px;
+        }
 
-  /* ===== HEADER ===== */
-  header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--borda)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-  .logo{display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-weight:800;font-size:1.3rem;color:var(--azul)}
-  .logo-mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--azul),var(--azul-2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem}
-  .logo span{color:var(--verde)}
-  .nav-links{display:flex;gap:28px;align-items:center;font-weight:500;font-size:.95rem}
-  .nav-links a{color:var(--cinza);transition:color .2s}
-  .nav-links a:hover{color:var(--azul)}
-  .btn{display:inline-block;padding:12px 26px;border-radius:10px;font-weight:600;font-size:.95rem;transition:transform .15s, box-shadow .2s;cursor:pointer;border:none}
-  .btn-verde{background:var(--verde);color:#fff;box-shadow:0 4px 14px rgba(0,195,137,.35)}
-  .btn-verde:hover{background:var(--verde-esc);transform:translateY(-2px)}
-  .btn-outline{border:2px solid var(--azul);color:var(--azul);background:transparent}
-  .btn-outline:hover{background:var(--azul);color:#fff}
-  .hamburger{display:none;background:none;border:none;font-size:1.6rem;color:var(--azul);cursor:pointer}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-  /* ===== HERO ===== */
-  .hero{background:linear-gradient(160deg,var(--azul) 0%,var(--azul-2) 70%,#1B4F82 100%);color:#fff;padding:96px 0 110px;position:relative;overflow:hidden}
-  .hero::after{content:"";position:absolute;right:-180px;top:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(0,195,137,.28),transparent 65%)}
-  .hero::before{content:"";position:absolute;left:-120px;bottom:-200px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.08),transparent 65%)}
-  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;position:relative;z-index:1}
-  .tag{display:inline-block;background:rgba(0,195,137,.15);border:1px solid rgba(0,195,137,.45);color:var(--verde);padding:7px 16px;border-radius:100px;font-size:.82rem;font-weight:600;letter-spacing:.4px;margin-bottom:22px}
-  .hero h1{font-size:clamp(2.1rem,4.5vw,3.3rem);font-weight:800;margin-bottom:20px}
-  .hero h1 em{font-style:normal;color:var(--verde)}
-  .hero p{font-size:1.12rem;color:#C6D4E2;max-width:520px;margin-bottom:34px}
-  .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
-  .btn-branco{background:#fff;color:var(--azul)}
-  .btn-branco:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.25)}
-  .btn-ghost{border:2px solid rgba(255,255,255,.4);color:#fff}
-  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
-  .hero-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:34px;backdrop-filter:blur(6px)}
-  .hero-card h3{font-size:1.15rem;margin-bottom:20px}
-  .metric{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}
-  .metric:last-child{border-bottom:none}
-  .metric strong{font-family:'Sora',sans-serif;font-size:1.6rem;color:var(--verde)}
-  .metric small{color:#AFC3D6;font-size:.85rem}
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-  /* ===== SEÇÕES ===== */
-  section{padding:88px 0}
-  .section-title{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;margin-bottom:14px;text-align:center}
-  .section-sub{color:var(--cinza);text-align:center;max-width:640px;margin:0 auto 54px;font-size:1.05rem}
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-60px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(60px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 var(--green-glow); }
+            50% { box-shadow: 0 0 0 12px transparent; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-  .bg-cinza{background:var(--cinza-claro)}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-  .card{background:#fff;border:1px solid var(--borda);border-radius:18px;padding:34px 28px;transition:transform .2s, box-shadow .25s}
-  .card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(10,37,64,.10)}
-  .card-icon{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--verde),#00E0A4);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px}
-  .card h3{font-size:1.15rem;margin-bottom:10px}
-  .card p{color:var(--cinza);font-size:.94rem}
+        .animate { opacity: 0; }
+        .animate.visible { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-left.visible { animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-right.visible { animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
 
-  /* ===== PILARES ===== */
-  .pilares{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-  .pilar{text-align:center;padding:28px 18px;background:#fff;border-radius:16px;border:1px solid var(--borda)}
-  .pilar .num{font-family:'Sora',sans-serif;font-size:2rem;font-weight:800;color:var(--verde);display:block;margin-bottom:8px}
+        .top-bar {
+            background: #064e3b;
+            color: #ffffff;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1001;
+            flex-wrap: wrap;
+        }
+        .top-bar span { font-weight: 500; letter-spacing: 0.5px; }
+        .top-bar .btn-outline {
+            background: transparent;
+            border: 1.5px solid #39ff14;
+            color: #39ff14;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .top-bar .btn-outline:hover {
+            background: #39ff14;
+            color: #064e3b;
+            transform: translateY(-1px);
+        }
 
-  /* ===== COMO FUNCIONA ===== */
-  .passos{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;counter-reset:passo}
-  .passo{background:#fff;border:1px solid var(--borda);border-radius:18px;padding:36px 28px;position:relative}
-  .passo::before{counter-increment:passo;content:counter(passo);position:absolute;top:-20px;left:28px;width:44px;height:44px;border-radius:12px;background:var(--azul);color:#fff;font-family:'Sora',sans-serif;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.15rem}
-  .passo h3{margin:12px 0 10px;font-size:1.1rem}
-  .passo p{color:var(--cinza);font-size:.93rem}
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            box-shadow: var(--shadow);
+            padding: 12px 40px;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #064e3b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .logo i { color: var(--green); font-size: 1.1rem; }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #065f46;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00e676;
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover { color: #00e676; }
+        .nav-links a:hover::after { width: 100%; }
 
-  /* ===== LGPD / LEGAL ===== */
-  .legal-box{background:#fff;border:1px solid var(--borda);border-radius:18px;padding:44px;max-width:860px;margin:0 auto}
-  .legal-box h3{font-size:1.2rem;margin:28px 0 12px}
-  .legal-box h3:first-child{margin-top:0}
-  .legal-box p, .legal-box li{color:var(--cinza);font-size:.95rem;margin-bottom:10px}
-  .legal-box ul{padding-left:22px;margin-bottom:12px}
-  .legal-nav{display:flex;gap:12px;justify-content:center;margin-bottom:36px;flex-wrap:wrap}
-  .legal-nav a{padding:10px 22px;border-radius:100px;border:1px solid var(--borda);font-weight:600;font-size:.9rem;color:var(--azul);background:#fff;transition:.2s}
-  .legal-nav a:hover,.legal-nav a.active{background:var(--azul);color:#fff}
-  .legal-panel{display:none}
-  .legal-panel.active{display:block}
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            color: #064e3b;
+            cursor: pointer;
+        }
 
-  /* ===== CONTATO ===== */
-  .contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-  .contato-info h3{font-size:1.3rem;margin-bottom:18px}
-  .contato-item{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start}
-  .contato-item .ico{width:42px;height:42px;min-width:42px;border-radius:10px;background:var(--cinza-claro);display:flex;align-items:center;justify-content:center;font-size:1.15rem}
-  .contato-item strong{display:block;font-size:.92rem}
-  .contato-item span{color:var(--cinza);font-size:.9rem}
-  form{display:grid;gap:14px}
-  .campo{width:100%;padding:14px 16px;border:1px solid var(--borda);border-radius:10px;font-family:'Inter',sans-serif;font-size:.95rem;color:var(--azul);background:#fff;outline:none;transition:border .2s}
-  .campo:focus{border-color:var(--verde)}
-  textarea.campo{resize:vertical;min-height:120px}
-  .form-check{display:flex;gap:10px;align-items:flex-start;font-size:.82rem;color:var(--cinza)}
-  .form-check input{margin-top:4px}
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 30%, #047857 70%, #059669 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300c853' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to top, var(--white), transparent);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(57,255,20,0.15);
+            border: 1px solid rgba(57,255,20,0.3);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            color: var(--green-light);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 28px;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        .hero-badge i { color: #39ff14; }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 24px;
+            text-shadow: 0 2px 20px rgba(6,78,59,0.3);
+            animation: fadeInUp 0.6s 0.1s ease forwards;
+            opacity: 0;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, #39ff14, #00e676);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+            animation: fadeInUp 0.6s 0.2s ease forwards;
+            opacity: 0;
+        }
+        .hero .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #00e676, #39ff14);
+            color: #064e3b;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,200,83,0.4), 0 0 0 0 var(--green-glow);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s 0.3s ease forwards, pulse 2s infinite;
+            opacity: 0;
+        }
+        .hero .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(0,200,83,0.5);
+        }
+        .hero .btn-primary i { font-size: 1.1rem; }
 
-  /* ===== CTA ===== */
-  .cta{background:linear-gradient(135deg,var(--verde),#00B57E);border-radius:24px;padding:64px 48px;text-align:center;color:#fff;position:relative;overflow:hidden}
-  .cta::after{content:"";position:absolute;right:-90px;bottom:-140px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,.12)}
-  .cta h2{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:14px;position:relative;z-index:1}
-  .cta p{opacity:.92;margin-bottom:30px;position:relative;z-index:1}
-  .cta .btn-branco{position:relative;z-index:1}
+        .float-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.12;
+            animation: float 6s ease-in-out infinite;
+        }
+        .orb-1 { width: 300px; height: 300px; background: #00e676; top: 10%; left: 10%; animation-delay: 0s; }
+        .orb-2 { width: 250px; height: 250px; background: #39ff14; bottom: 20%; right: 10%; animation-delay: 2s; }
+        .orb-3 { width: 200px; height: 200px; background: #00c853; top: 40%; right: 30%; animation-delay: 4s; }
 
-  /* ===== FOOTER ===== */
-  footer{background:var(--azul);color:#B9C9D9;padding:64px 0 0;font-size:.9rem}
-  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:48px}
-  footer h4{color:#fff;font-size:1rem;margin-bottom:18px}
-  footer .logo{color:#fff;margin-bottom:16px}
-  footer ul{list-style:none}
-  footer ul li{margin-bottom:10px}
-  footer ul a{transition:color .2s}
-  footer ul a:hover{color:var(--verde)}
-  .footer-empresa p{margin-bottom:10px;font-size:.86rem}
-  .footer-empresa strong{color:#E5EEF6;font-weight:600}
-  .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding:22px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.82rem;color:#8FA5B8}
-  .selo-bcb{display:inline-flex;align-items:center;gap:8px;background:rgba(0,195,137,.12);border:1px solid rgba(0,195,137,.4);color:var(--verde);padding:8px 16px;border-radius:100px;font-size:.8rem;font-weight:600;margin-top:14px}
+        section { padding: 100px 24px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+        .section-label {
+            display: inline-block;
+            background: #064e3b;
+            color: #39ff14;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
 
-  /* ===== RESPONSIVO ===== */
-  @media(max-width:960px){
-    .hero-grid,.contato-grid{grid-template-columns:1fr}
-    .cards,.passos{grid-template-columns:1fr 1fr}
-    .pilares{grid-template-columns:1fr 1fr}
-    .footer-grid{grid-template-columns:1fr 1fr}
-    .nav-links{position:fixed;top:72px;right:0;background:#fff;flex-direction:column;align-items:flex-start;padding:24px;width:250px;height:calc(100vh - 72px);transform:translateX(100%);transition:transform .3s;border-left:1px solid var(--borda);box-shadow:-8px 0 30px rgba(0,0,0,.08)}
-    .nav-links.open{transform:translateX(0)}
-    .nav-links .btn{width:100%;text-align:center}
-    .hamburger{display:block}
-  }
-  @media(max-width:600px){
-    .cards,.passos,.pilares,.footer-grid{grid-template-columns:1fr}
-    section{padding:64px 0}
-    .legal-box{padding:28px 22px}
-    .cta{padding:48px 28px}
-  }
-</style>
+        .services { background: #f0fdf4; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00e676, #39ff14);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: transparent;
+        }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 24px;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover .service-icon { transform: scale(1.1) rotate(-5deg); }
+        .icon-boleto { background: linear-gradient(135deg, #064e3b, #065f46); }
+        .icon-suporte { background: linear-gradient(135deg, var(--green), var(--green-light)); }
+        .icon-cancel { background: linear-gradient(135deg, #065f46, #047857); }
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .service-card ul {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+        .service-card ul li {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            padding: 6px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .service-card ul li i {
+            color: #00e676;
+            font-size: 0.8rem;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+        .service-card .btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 14px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-black {
+            background: #064e3b;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn-black:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(6,78,59,0.3);
+            background: #065f46;
+        }
+        .btn-green {
+            background: linear-gradient(135deg, #00e676, #39ff14);
+            color: #064e3b;
+            box-shadow: 0 4px 15px rgba(0,200,83,0.3);
+            font-weight: 800;
+        }
+        .btn-green:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,200,83,0.4);
+        }
+        .btn-outline-dark {
+            background: transparent;
+            color: #064e3b;
+            border: 2px solid #064e3b;
+            box-shadow: none;
+        }
+        .btn-outline-dark:hover {
+            background: #064e3b;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .advantages { background: var(--white); }
+        .advantages-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .advantages-img {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        .advantages-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .advantages-img:hover img { transform: scale(1.05); }
+        .advantages-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,200,83,0.1), rgba(0,0,0,0.05));
+            pointer-events: none;
+        }
+        .advantages-list { display: flex; flex-direction: column; gap: 28px; }
+        .advantage-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+        }
+        .advantage-item:hover {
+            background: #f0fdf4;
+            transform: translateX(8px);
+        }
+        .advantage-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 12px;
+            background: #064e3b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .advantage-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+        .advantage-item p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        .advantages-cta { margin-top: 32px; }
+        .advantages-cta .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #064e3b;
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .advantages-cta .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(6,78,59,0.3);
+            background: #065f46;
+        }
+
+        .steps { background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%); }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            position: relative;
+        }
+        .step-card {
+            text-align: center;
+            padding: 40px 24px;
+            position: relative;
+        }
+        .step-number {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #064e3b;
+            color: #39ff14;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+        .step-card:hover .step-number { transform: scale(1.1); }
+        .step-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        .step-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .step-connector {
+            position: absolute;
+            top: 70px;
+            left: 20%;
+            right: 20%;
+            height: 2px;
+            background: linear-gradient(90deg, #064e3b, #00e676);
+            opacity: 0.15;
+            z-index: 1;
+        }
+        .steps-cta {
+            text-align: center;
+            margin-top: 48px;
+        }
+        .steps-cta .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #064e3b;
+            color: #ffffff;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .steps-cta .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(6,78,59,0.3);
+            background: #065f46;
+        }
+
+        .footer {
+            background: #064e3b;
+            color: #ffffff;
+            padding: 60px 24px 30px;
+            text-align: center;
+        }
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .footer-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #39ff14;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 1.4rem;
+            color: #064e3b;
+            box-shadow: 0 8px 24px rgba(0,200,83,0.3);
+            animation: float 4s ease-in-out infinite;
+        }
+        .footer h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+        .footer p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+        .footer .btn-accent {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #00e676, #39ff14);
+            color: #064e3b;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(0,200,83,0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+        .footer .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,200,83,0.4);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 24px;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer-legal {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .footer-legal button {
+            background: transparent;
+            border: 1.5px solid rgba(255,255,255,0.3);
+            color: rgba(255,255,255,0.85);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        .footer-legal button:hover {
+            border-color: var(--green);
+            color: var(--green);
+            transform: translateY(-1px);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-card {
+            background: var(--white);
+            color: var(--text);
+            max-width: 640px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border-radius: var(--radius);
+            padding: 40px;
+            position: relative;
+            box-shadow: var(--shadow-xl);
+            transform: translateY(20px) scale(0.98);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modal-overlay.active .modal-card {
+            transform: translateY(0) scale(1);
+        }
+        .modal-card h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        .modal-card .modal-tag {
+            display: inline-block;
+            background: #064e3b;
+            color: #39ff14;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        .modal-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 24px 0 8px;
+            color: var(--text);
+        }
+        .modal-card p,
+        .modal-card li {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        .modal-card ul {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: #064e3b;
+            color: #39ff14;
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            background: #065f46;
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 768px) {
+            .top-bar { padding: 10px 16px; font-size: 0.8rem; gap: 12px; }
+            .navbar { padding: 12px 20px; }
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            section { padding: 60px 20px; }
+            .advantages-inner { grid-template-columns: 1fr; gap: 40px; }
+            .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+            .step-connector { display: none; }
+            .services-grid { grid-template-columns: 1fr; }
+            .hero { min-height: 70vh; padding: 60px 20px; }
+            .modal-card { padding: 28px 20px; }
+        }
+
+        /* ===== BOTÃO WHATSAPP FLUTUANTE ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: #fff;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.35);
+            cursor: pointer;
+            z-index: 9998;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none;
+            animation: pulse-green 2.5s ease-in-out infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.12) translateY(-4px);
+            box-shadow: 0 10px 32px rgba(37, 211, 102, 0.6);
+        }
+        .whatsapp-float:active {
+            transform: scale(0.95);
+        }
+        .whatsapp-float i { pointer-events: none; }
+        @keyframes pulse-green {
+            0%, 100% { box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.35); }
+            50% { box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45), 0 0 0 16px transparent; }
+        }
+        .whatsapp-tooltip {
+            position: fixed;
+            bottom: 38px;
+            right: 100px;
+            background: #064e3b;
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(10px);
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 9997;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 6px 0 6px 8px;
+            border-style: solid;
+            border-color: transparent transparent transparent #064e3b;
+        }
+        .whatsapp-float:hover + .whatsapp-tooltip,
+        .whatsapp-tooltip:hover {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 56px;
+                height: 56px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+            .whatsapp-tooltip { display: none; }
+        }
+    </style>
+    <!-- IMPORTANTE: NÃO existe <base target="_blank"> aqui -->
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
 <base target="_blank">
 </head>
 <body>
 
-<!-- ================= HEADER ================= -->
-<header>
-  <div class="container nav">
-    <a href="#inicio" class="logo">
-      <span class="logo-mark">A</span>
-      ASA<span>·</span>Crédito Direto
-    </a>
-    <nav class="nav-links" id="menu">
-      <a href="#inicio">Início</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#solucoes">Soluções</a>
-      <a href="#como-funciona">Como Funciona</a>
-      <a href="#legal">Privacidade & Termos</a>
-      <a href="#contato" class="btn btn-verde">Fale Conosco</a>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <span><i class="fas fa-bolt" style="color:var(--green)"></i> SOLICITAR ATENDIMENTO RÁPIDO!</span>
+        <a href="https://wa.me/5527920022518?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20um%20especialista." class="btn-outline"><i class="fas fa-headset"></i> FALAR COM ESPECIALISTA</a>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-wifi"></i>
+            Portal do Cliente
+        </a>
+        <!-- MENU: links são âncoras simples, SEM target="_blank" -->
+        <ul class="nav-links">
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#vantagens">Vantagens</a></li>
+            <li><a href="#passoapasso">Como Funciona</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+            <i class="fas fa-bars"></i>
+        </button>
     </nav>
-    <button class="hamburger" id="hamburger" aria-label="Abrir menu">☰</button>
-  </div>
-</header>
 
-<!-- ================= HERO ================= -->
-<section class="hero" id="inicio">
-  <div class="container hero-grid">
-    <div>
-      <span class="tag">Sociedade de Crédito Direto · Instituição autorizada</span>
-      <h1>Crédito <em>digital</em>, transparente e feito para você</h1>
-      <p>A ASA Sociedade de Crédito Direto S.A. une tecnologia de ponta e governança rigorosa para oferecer soluções de crédito ágeis, seguras e sob medida para pessoas físicas e jurídicas.</p>
-      <div class="hero-actions">
-        <a href="#solucoes" class="btn btn-verde">Conheça nossas soluções</a>
-        <a href="#contato" class="btn btn-ghost">Fale com a gente</a>
-      </div>
-    </div>
-    <div class="hero-card">
-      <h3>Compromisso em números</h3>
-      <div class="metric"><small>Processo 100% digital</small><strong>Rápido</strong></div>
-      <div class="metric"><small>Dados protegidos conforme</small><strong>LGPD</strong></div>
-      <div class="metric"><small>Instituição supervisionada pelo</small><strong>Bacen</strong></div>
-      <div class="metric"><small>Atendimento humano e dedicado</small><strong>7 dias</strong></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SOBRE ================= -->
-<section id="sobre">
-  <div class="container">
-    <h2 class="section-title">Quem somos</h2>
-    <p class="section-sub">Somos uma Sociedade de Crédito Direto (SCD), instituição financeira autorizada pelo Banco Central do Brasil, dedicada a democratizar o acesso ao crédito com responsabilidade.</p>
-    <div class="cards">
-      <div class="card">
-        <div class="card-icon">🎯</div>
-        <h3>Nossa Missão</h3>
-        <p>Oferecer crédito justo e acessível, utilizando tecnologia e análise de dados para aprovar mais pessoas com condições claras e sem letras miúdas.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🔭</div>
-        <h3>Nossa Visão</h3>
-        <p>Ser referência em crédito digital no Brasil, reconhecida pela transparência, pela experiência do cliente e pela solidez da nossa gestão.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🤝</div>
-        <h3>Nossos Valores</h3>
-        <p>Transparência em cada contrato, segurança de dados em cada operação, respeito ao cliente e conformidade regulatória permanente.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= PILARES ================= -->
-<section class="bg-cinza">
-  <div class="container">
-    <h2 class="section-title">Por que escolher a ASA?</h2>
-    <p class="section-sub">Quatro pilares que sustentam cada operação que realizamos.</p>
-    <div class="pilares">
-      <div class="pilar"><span class="num">01</span><h4>Tecnologia própria</h4><p>Plataforma digital com análise automatizada e decisão ágil de crédito.</p></div>
-      <div class="pilar"><span class="num">02</span><h4>Transparência total</h4><p>CET, taxas e condições apresentados de forma clara antes da contratação.</p></div>
-      <div class="pilar"><span class="num">03</span><h4>Segurança e LGPD</h4><p>Seus dados tratados com criptografia e conformidade total à legislação.</p></div>
-      <div class="pilar"><span class="num">04</span><h4>Regulamentação</h4><p>Instituição autorizada e supervisionada pelo Banco Central do Brasil.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SOLUÇÕES ================= -->
-<section id="solucoes">
-  <div class="container">
-    <h2 class="section-title">Nossas soluções de crédito</h2>
-    <p class="section-sub">Produtos pensados para atender diferentes momentos e necessidades, sempre com condições claras e processo digital.</p>
-    <div class="cards">
-      <div class="card">
-        <div class="card-icon">💰</div>
-        <h3>Empréstimo Pessoal</h3>
-        <p>Crédito pessoal com parcelas fixas, contratação 100% digital e dinheiro na conta em poucas horas após a aprovação.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🏢</div>
-        <h3>Crédito PJ</h3>
-        <p>Capital de giro e financiamento para micro, pequenas e médias empresas impulsionarem seu crescimento.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">💳</div>
-        <h3>Crédito Consignado</h3>
-        <p>Parcelas descontadas diretamente do salário ou benefício, com taxas reduzidas e prazos estendidos.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🔄</div>
-        <h3>Refinanciamento</h3>
-        <p>Troque dívidas caras por um único contrato com parcelas menores e prazo sob medida para o seu bolso.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">📱</div>
-        <h3>Antecipação</h3>
-        <p>Soluções de antecipação de recebíveis para empresas melhorarem o fluxo de caixa sem burocracia.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🛡️</div>
-        <h3>Parcerias & B2B</h3>
-        <p>Infraestrutura de crédito white-label para empresas e fintechs, com API e experiência integrada.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= COMO FUNCIONA ================= -->
-<section class="bg-cinza" id="como-funciona">
-  <div class="container">
-    <h2 class="section-title">Como funciona</h2>
-    <p class="section-sub">Simplicidade do início ao fim — sem filas, sem papelada, sem surpresas.</p>
-    <div class="passos">
-      <div class="passo">
-        <h3>Simule</h3>
-        <p>Informe o valor desejado e o prazo. Na hora você vê as parcelas, o CET e todas as condições — sem compromisso e sem consulta desnecessária.</p>
-      </div>
-      <div class="passo">
-        <h3>Cadastre-se</h3>
-        <p>Faça seu cadastro digital com validação de identidade. Nossa análise automatizada com tecnologia de ponta retorna uma resposta rápida.</p>
-      </div>
-      <div class="passo">
-        <h3>Receba</h3>
-        <p>Aprovado? Assine o contrato eletronicamente e receba o dinheiro direto na sua conta. Acompanhe tudo pelo nosso painel.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= LEGAL: PRIVACIDADE & TERMOS ================= -->
-<section id="legal">
-  <div class="container">
-    <h2 class="section-title">Privacidade & Termos de Uso</h2>
-    <p class="section-sub">Documentos oficiais que regem o uso do nosso site e o tratamento dos seus dados. Leia com atenção.</p>
-
-    <div class="legal-nav">
-      <a href="#" class="active" data-panel="privacidade">Política de Privacidade</a>
-      <a href="#" data-panel="termos">Termos de Uso</a>
-    </div>
-
-    <!-- POLÍTICA DE PRIVACIDADE -->
-    <div class="legal-box legal-panel active" id="panel-privacidade">
-      <h3>1. Introdução</h3>
-      <p>A ASA SOCIEDADE DE CRÉDITO DIRETO S.A. ("ASA", "nós"), pessoa jurídica de direito privado, inscrita no CNPJ sob o nº 48.703.388/0001-13, com sede na Alameda Santos, 2159, Andar 9, Conjunto 91 — Cerqueira César, São Paulo/SP — CEP 01419-100, valoriza a privacidade de seus clientes e visitantes e trata os dados pessoais em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — "LGPD").</p>
-
-      <h3>2. Dados que coletamos</h3>
-      <ul>
-        <li><strong>Dados de identificação:</strong> nome completo, CPF, data de nascimento, documentos de identidade;</li>
-        <li><strong>Dados de contato:</strong> e-mail, telefone, endereço;</li>
-        <li><strong>Dados financeiros e cadastrais:</strong> informações necessárias à análise de crédito, em conformidade com a regulamentação do Banco Central do Brasil;</li>
-        <li><strong>Dados de navegação:</strong> endereço IP, cookies, dispositivo e comportamento de uso no site.</li>
-      </ul>
-
-      <h3>3. Finalidades do tratamento</h3>
-      <ul>
-        <li>Avaliar e conceder operações de crédito;</li>
-        <li>Cumprir obrigações legais e regulatórias, incluindo prevenção à lavagem de dinheiro e ao financiamento do terrorismo;</li>
-        <li>Melhorar nossos produtos, serviços e experiência do usuário;</li>
-        <li>Enviar comunicações sobre produtos e serviços (mediante consentimento, quando exigido);</li>
-        <li>Prevenir fraudes e garantir a segurança das operações.</li>
-      </ul>
-
-      <h3>4. Compartilhamento de dados</h3>
-      <p>O compartilhamento ocorre apenas quando estritamente necessário: com autoridades reguladoras (Banco Central, Receita Federal), birôs de crédito, parceiros operacionais sob obrigações de confidencialidade, ou mediante determinação judicial.</p>
-
-      <h3>5. Cookies</h3>
-      <p>Utilizamos cookies para garantir o funcionamento do site, analisar o tráfego e personalizar a experiência. Você pode gerenciar as preferências de cookies nas configurações do seu navegador.</p>
-
-      <h3>6. Segurança</h3>
-      <p>Adotamos medidas técnicas e administrativas robustas, incluindo criptografia, controle de acesso e monitoramento contínuo, para proteger seus dados contra acessos não autorizados, perda ou alteração.</p>
-
-      <h3>7. Seus direitos</h3>
-      <p>Em conformidade com a LGPD, você pode solicitar, a qualquer momento, a confirmação, o acesso, a correção, a anonimização, a portabilidade, a eliminação de dados ou a revogação do consentimento, bem como se opor a tratamentos baseados em interesse legítimo.</p>
-
-      <h3>8. Encarregado de dados (DPO)</h3>
-      <p>Para exercer seus direitos ou esclarecer dúvidas sobre esta política, contate nosso Encarregado de Proteção de Dados pelo e-mail: <strong>privacidade@asacredito.com.br</strong> ou pelo endereço: Alameda Santos, 2159, Andar 9, Conjunto 91 — Cerqueira César, São Paulo/SP — CEP 01419-100.</p>
-
-      <h3>9. Alterações</h3>
-      <p>Esta política pode ser atualizada periodicamente. A versão vigente estará sempre disponível nesta página, com a data da última atualização. Última atualização: setembro de 2026.</p>
-    </div>
-
-    <!-- TERMOS DE USO -->
-    <div class="legal-box legal-panel" id="panel-termos">
-      <h3>1. Aceitação</h3>
-      <p>Ao acessar e utilizar este site, você declara ter lido, compreendido e aceitado integralmente estes Termos de Uso, bem como a nossa Política de Privacidade. Caso não concorde, por favor, interrompa o uso do site.</p>
-
-      <h3>2. Sobre a instituição</h3>
-      <p>A ASA SOCIEDADE DE CRÉDITO DIRETO S.A., CNPJ nº 48.703.388/0001-13, é uma instituição financeira autorizada a operar como Sociedade de Crédito Direto pelo Banco Central do Brasil, com sede na Alameda Santos, 2159, Andar 9, Conjunto 91 — Cerqueira César, São Paulo/SP — CEP 01419-100.</p>
-
-      <h3>3. Uso do site</h3>
-      <ul>
-        <li>As simulações realizadas neste site têm caráter meramente informativo e não constituem oferta vinculante;</li>
-        <li>A contratação de produtos está sujeita à análise e aprovação de crédito;</li>
-        <li>É vedado utilizar o site para fins ilícitos, fraudes ou violação de sistemas.</li>
-      </ul>
-
-      <h3>4. Propriedade intelectual</h3>
-      <p>Todo o conteúdo deste site — textos, marcas, logotipos, layouts, imagens e software — é de propriedade da ASA ou licenciado a ela, sendo protegido pelas leis de direitos autorais e propriedade industrial. A reprodução sem autorização prévia e por escrito é proibida.</p>
-
-      <h3>5. Condições de crédito</h3>
-      <p>As taxas de juros (CET — Custo Efetivo Total), prazos e condições de cada produto são informados antes da contratação, em conformidade com a legislação vigente e a Resolução CMN nº 4.949/2021 e alterações. Exemplo ilustrativo: R$ 10.000,00 em 12 meses, taxa de 1,99% a.m. — parcelas de R$ 941,00 — CET de 26,6% a.a.</p>
-
-      <h3>6. Responsabilidade</h3>
-      <p>A ASA se empenha para manter o site disponível e as informações atualizadas, mas não garante a ausência de interrupções ou erros. A instituição não se responsabiliza por decisões tomadas exclusivamente com base em simulações realizadas no site.</p>
-
-      <h3>7. Links externos</h3>
-      <p>Este site pode conter links para sites de terceiros. A ASA não se responsabiliza pelo conteúdo ou pelas práticas de privacidade de sites de terceiros.</p>
-
-      <h3>8. Legislação aplicável</h3>
-      <p>Estes Termos são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro da Comarca de São Paulo/SP para dirimir quaisquer controvérsias decorrentes deste documento, salvo disposição legal em contrário.</p>
-
-      <h3>9. Alterações</h3>
-      <p>A ASA pode alterar estes Termos a qualquer momento, sendo a versão vigente disponibilizada nesta página. Última atualização: setembro de 2026.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONTATO ================= -->
-<section class="bg-cinza" id="contato">
-  <div class="container">
-    <h2 class="section-title">Fale conosco</h2>
-    <p class="section-sub">Nossa equipe está pronta para atender você. Envie sua mensagem ou utilize um dos nossos canais.</p>
-    <div class="contato-grid">
-      <div class="contato-info">
-        <h3>Canais de atendimento</h3>
-        <div class="contato-item">
-          <div class="ico">📍</div>
-          <div><strong>Endereço</strong><span>Alameda Santos, 2159 — Andar 9, Conjunto 91<br>Cerqueira César — São Paulo/SP — CEP 01419-100</span></div>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="float-orb orb-1"></div>
+        <div class="float-orb orb-2"></div>
+        <div class="float-orb orb-3"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-circle-check"></i>
+                Atendimento 100% Digital
+            </div>
+            <h1>Portal de <span>Atendimento</span> ao Cliente!</h1>
+            <p>Emita boletos, tire dúvidas, soluções rápidas e eficazes para problemas de conexão, configuração e desempenho da sua rede. Tudo direto no seu celular.</p>
+            <a href="https://wa.me/5527920022518?text=Ol%C3%A1%21%20Vim%20pelo%20Portal%20do%20Cliente%20e%20gostaria%20de%20solicitar%20atendimento." class="btn-primary">
+                <i class="fas fa-comment-dots"></i>
+                SOLICITAR ATENDIMENTO
+            </a>
         </div>
-        <div class="contato-item">
-          <div class="ico">✉️</div>
-          <div><strong>E-mail</strong><span>contato@asacredito.com.br<br>privacidade@asacredito.com.br (dados pessoais)</span></div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="servicos">
+        <div class="container">
+            <div class="section-header animate">
+                <span class="section-label">Nossos Serviços</span>
+                <h2>Tudo o que você precisa saber para usar nossos serviços da melhor forma!</h2>
+                <p>Escolha a opção que melhor atende à sua necessidade e resolva em minutos.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate delay-1">
+                    <div class="service-icon icon-boleto"><i class="fas fa-file-invoice-dollar" style="color:var(--green)"></i></div>
+                    <h3>Emitir 2ª Via Atualizada</h3>
+                    <p>Peça a segunda via do seu boleto e receba os dados para pagamento no suporte digital.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Receba a via atualizada</li>
+                        <li><i class="fas fa-check-circle"></i> Dados inclusos para pagamento</li>
+                        <li><i class="fas fa-check-circle"></i> Suporte rápido</li>
+                    </ul>
+                    <a href="https://wa.me/5527920022518?text=Ol%C3%A1%21%20Preciso%20da%202%C2%AA%20via%20do%20meu%20boleto%20atualizado." class="btn btn-black">EMITIR 2ª VIA</a>
+                </div>
+                <div class="service-card animate delay-2">
+                    <div class="service-icon icon-suporte"><i class="fas fa-screwdriver-wrench"></i></div>
+                    <h3>Suporte Técnico</h3>
+                    <p>Verifique pelo suporte a solução rápida para seu problema com a internet, entre em contato.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Verificação de condições</li>
+                        <li><i class="fas fa-check-circle"></i> Alternativas apresentadas no suporte</li>
+                        <li><i class="fas fa-check-circle"></i> Procedimento online</li>
+                    </ul>
+                    <a href="https://wa.me/5527920022518?text=Ol%C3%A1%21%20Estou%20com%20problema%20na%20minha%20conex%C3%A3o%20e%20preciso%20de%20suporte%20t%C3%A9cnico." class="btn btn-green">SOLICITAR SUPORTE</a>
+                </div>
+                <div class="service-card animate delay-3">
+                    <div class="service-icon icon-cancel"><i class="fas fa-user-xmark" style="color:var(--green)"></i></div>
+                    <h3>Cancelamento</h3>
+                    <p>Solicite o cancelamento quando quiser, suporte online disponível para cancelamento.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Atendimento exclusivo</li>
+                        <li><i class="fas fa-check-circle"></i> Instruções no suporte</li>
+                        <li><i class="fas fa-check-circle"></i> Atendimento sigiloso para você</li>
+                    </ul>
+                    <a href="https://wa.me/5527920022518?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20o%20cancelamento%20do%20meu%20servi%C3%A7o." class="btn btn-black">CANCELAMENTO IMEDIATO</a>
+                </div>
+            </div>
         </div>
-        <div class="contato-item">
-          <div class="ico">📞</div>
-          <div><strong>Telefone</strong><span>(11) 4000-0000 — Seg. a sex., das 9h às 18h</span></div>
+    </section>
+
+    <!-- ADVANTAGES -->
+    <section class="advantages" id="vantagens">
+        <div class="container">
+            <div class="advantages-inner">
+                <div class="advantages-img animate-left">
+                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&h=700&fit=crop&crop=faces" alt="Mulher sorrindo usando fones de ouvido e celular">
+                </div>
+                <div class="advantages-content">
+                    <div class="section-header animate" style="text-align:left; margin:0 0 40px 0;">
+                        <span class="section-label">Diferenciais</span>
+                        <h2>Vantagens da nossa Plataforma</h2>
+                        <p>Facilidades pensadas para o seu dia a dia!</p>
+                    </div>
+                    <div class="advantages-list">
+                        <div class="advantage-item animate delay-1">
+                            <div class="advantage-icon"><i class="fas fa-heart"></i></div>
+                            <div>
+                                <h4>Suporte Humanizado</h4>
+                                <p>Um canal digital pensado para guiar sua demanda com objetividade e transparência.</p>
+                            </div>
+                        </div>
+                        <div class="advantage-item animate delay-2">
+                            <div class="advantage-icon"><i class="fas fa-shield-halved"></i></div>
+                            <div>
+                                <h4>Dados Protegidos</h4>
+                                <p>As informações compartilhadas no suporte seguem as diretrizes vigentes e a política de privacidade.</p>
+                            </div>
+                        </div>
+                        <div class="advantage-item animate delay-3">
+                            <div class="advantage-icon"><i class="fas fa-bolt"></i></div>
+                            <div>
+                                <h4>Rapidez no Processo</h4>
+                                <p>Faça suas solicitações pelo celular, sem precisar se deslocar até um local físico.</p>
+                            </div>
+                        </div>
+                        <div class="advantage-item animate delay-4">
+                            <div class="advantage-icon"><i class="fas fa-mobile-screen"></i></div>
+                            <div>
+                                <h4>Acesso Direto e Fácil</h4>
+                                <p>Inicie sua demanda quando quiser e receba retorno de acordo com a disponibilidade da equipe.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="advantages-cta animate delay-5">
+                        <a href="https://wa.me/5527920022518?text=Ol%C3%A1%21%20Vim%20pelo%20Portal%20do%20Cliente%20e%20gostaria%20de%20solicitar%20atendimento." class="btn-primary"><i class="fas fa-comment-dots"></i> SOLICITAR ATENDIMENTO</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="contato-item">
-          <div class="ico">📋</div>
-          <div><strong>CNPJ</strong><span>48.703.388/0001-13</span></div>
+    </section>
+
+    <!-- STEPS -->
+    <section class="steps" id="passoapasso">
+        <div class="container">
+            <div class="section-header animate">
+                <span class="section-label">Processo</span>
+                <h2>Passo a Passo</h2>
+                <p>Três etapas rápidas para ser atendido</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-connector"></div>
+                <div class="step-card animate delay-1">
+                    <div class="step-number">1</div>
+                    <h3>Abra o Chat</h3>
+                    <p>Toque no botão <strong>SOLICITAR ATENDIMENTO</strong> e inicie a conversa com nosso canal de suporte digital.</p>
+                </div>
+                <div class="step-card animate delay-2">
+                    <div class="step-number">2</div>
+                    <h3>Descreva o Que Precisa</h3>
+                    <p>Diga se quer segunda via do boleto, solicitar atendimento para resolver problemas com sua internet ou cancelamento.</p>
+                </div>
+                <div class="step-card animate delay-3">
+                    <div class="step-number">3</div>
+                    <h3>Receba o Retorno</h3>
+                    <p>A equipe envia as orientações e dados conforme o que foi solicitado.</p>
+                </div>
+            </div>
+            <div class="steps-cta animate">
+                <a href="https://wa.me/5527920022518?text=Ol%C3%A1%21%20Vim%20pelo%20Portal%20do%20Cliente%20e%20gostaria%20de%20solicitar%20atendimento." class="btn-primary"><i class="fas fa-paper-plane"></i> SOLICITAR ATENDIMENTO</a>
+            </div>
         </div>
-      </div>
-      <form onsubmit="event.preventDefault();alert('Mensagem enviada! Retornaremos em brede. Obrigado pelo contato.');">
-        <input class="campo" type="text" placeholder="Seu nome completo" required>
-        <input class="campo" type="email" placeholder="Seu e-mail" required>
-        <input class="campo" type="tel" placeholder="Telefone (opcional)">
-        <textarea class="campo" placeholder="Como podemos ajudar?" required></textarea>
-        <label class="form-check">
-          <input type="checkbox" required>
-          <span>Li e concordo com a <a href="#legal" style="color:var(--verde);text-decoration:underline">Política de Privacidade</a> e autorizo o tratamento dos meus dados para fins de contato.</span>
-        </label>
-        <button class="btn btn-verde" type="submit">Enviar mensagem</button>
-      </form>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ================= CTA ================= -->
-<section>
-  <div class="container">
-    <div class="cta">
-      <h2>Pronto para dar o próximo passo?</h2>
-      <p>Simule agora e descubra as condições ideais para o seu momento — sem compromisso.</p>
-      <a href="#contato" class="btn btn-branco">Solicitar uma proposta</a>
-    </div>
-  </div>
-</section>
+    <!-- FOOTER -->
+    <footer class="footer" id="contato">
+        <div class="footer-content">
+            <div class="footer-icon"><i class="fas fa-headset"></i></div>
+            <h3>Precisa de Ajuda?</h3>
+            <p>Sinta-se à vontade para entrar em contato conosco se tiver algum problema. Nossa equipe de suporte está disponível <strong>24 horas por dia, 7 dias por semana</strong>.</p>
+            <a href="https://wa.me/5527920022518?text=Ol%C3%A1%21%20Preciso%20de%20ajuda.%20Vim%20pelo%20Portal%20do%20Cliente." class="btn-accent">
+                <i class="fas fa-comment-dots"></i>
+                INICIAR ATENDIMENTO
+            </a>
 
-<!-- ================= FOOTER ================= -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <a href="#inicio" class="logo"><span class="logo-mark">A</span> ASA<span>·</span>Crédito Direto</a>
-        <p style="max-width:320px;font-size:.88rem">Soluções de crédito digital com tecnologia, transparência e segurança. Instituição autorizada pelo Banco Central do Brasil.</p>
-        <span class="selo-bcb">✓ Autorizada pelo Banco Central do Brasil</span>
-      </div>
-      <div>
-        <h4>Navegação</h4>
-        <ul>
-          <li><a href="#inicio">Início</a></li>
-          <li><a href="#sobre">Sobre nós</a></li>
-          <li><a href="#solucoes">Soluções</a></li>
-          <li><a href="#como-funciona">Como funciona</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="#legal">Política de Privacidade</a></li>
-          <li><a href="#legal">Termos de Uso</a></li>
-          <li><a href="#legal">LGPD</a></li>
-          <li><a href="#legal">Transparência</a></li>
-        </ul>
-      </div>
-      <div class="footer-empresa">
-        <h4>Informações da empresa</h4>
-        <p><strong>Razão Social:</strong> ASA Sociedade de Crédito Direto S.A.</p>
-        <p><strong>CNPJ:</strong> 48.703.388/0001-13</p>
-        <p><strong>Endereço:</strong> Alameda Santos, 2159 — Andar 9, Conjunto 91 — Cerqueira César, São Paulo — SP — CEP 01419-100, Brasil</p>
-        <p><strong>E-mail:</strong> contato@asacredito.com.br</p>
-        <p><strong>Telefone:</strong> (11) 4000-0000</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 ASA Sociedade de Crédito Direto S.A. — Todos os direitos reservados.</span>
-      <span>CNPJ 48.703.388/0001-13 · São Paulo — SP · Brasil</span>
-    </div>
-  </div>
-</footer>
+            <div class="footer-legal">
+                <button onclick="openModal('privacy')"><i class="fas fa-lock" style="margin-right:6px;"></i>Política de Privacidade</button>
+                <button onclick="openModal('terms')"><i class="fas fa-file-contract" style="margin-right:6px;"></i>Termos de Uso</button>
+            </div>
 
-<script>
-  // Menu mobile
-  const hamburger = document.getElementById('hamburger');
-  const menu = document.getElementById('menu');
-  hamburger.addEventListener('click', () => menu.classList.toggle('open'));
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+            <div class="footer-bottom">
+                <p>© 2026 Portal do Cliente. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
-  // Abas de documentos legais
-  const tabs = document.querySelectorAll('.legal-nav a');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', e => {
-      e.preventDefault();
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      document.querySelectorAll('.legal-panel').forEach(p => p.classList.remove('active'));
-      document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
-    });
-  });
-</script>
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate, .animate-left, .animate-right').forEach(el => observer.observe(el));
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        /* ===== BLOQUEIO DE NOVA ABA PARA ÂNCORAS ===== */
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const modalContent = {
+            privacy: `
+                <span class="modal-tag">Privacidade</span>
+                <h2>Política de Privacidade</h2>
+                <p><strong>Última atualização:</strong> 20 de agosto de 2026</p>
+
+                <h3>1. Coleta de Dados</h3>
+                <p>Coletamos apenas as informações necessárias para prestar o atendimento solicitado, como nome, e-mail, telefone e dados da solicitação.</p>
+
+                <h3>2. Uso das Informações</h3>
+                <p>As informações são utilizadas exclusivamente para:</p>
+                <ul>
+                    <li>Processar suas solicitações de atendimento</li>
+                    <li>Emitir segunda via de boletos</li>
+                    <li>Prestar suporte técnico</li>
+                    <li>Cumprir obrigações legais</li>
+                </ul>
+
+                <h3>3. Proteção</h3>
+                <p>Adotamos medidas de segurança técnicas e administrativas para proteger seus dados contra acessos não autorizados, vazamentos ou qualquer forma de tratamento inadequado.</p>
+
+                <h3>4. Seus Direitos</h3>
+                <p>Você pode solicitar acesso, correção, atualização ou exclusão dos seus dados pessoais a qualquer momento pelo nosso canal de atendimento.</p>
+
+                <h3>5. Compartilhamento</h3>
+                <p>Não vendemos, alugamos ou comercializamos seus dados. O compartilhamento ocorre apenas quando necessário para execução do serviço ou por obrigação legal.</p>
+            `,
+            terms: `
+                <span class="modal-tag">Termos</span>
+                <h2>Termos de Uso</h2>
+                <p><strong>Última atualização:</strong> 20 de agosto de 2026</p>
+
+                <h3>1. Aceitação</h3>
+                <p>Ao utilizar nosso portal de atendimento, você concorda com estes termos e condições de uso. Caso não concorde, por favor, não utilize os serviços disponíveis.</p>
+
+                <h3>2. Serviços Oferecidos</h3>
+                <p>O portal disponibiliza canais digitais para:</p>
+                <ul>
+                    <li>Solicitação de 2ª via de boleto</li>
+                    <li>Atendimento de suporte técnico</li>
+                    <li>Solicitação de cancelamento de serviços</li>
+                </ul>
+
+                <h3>3. Responsabilidades do Usuário</h3>
+                <p>Você se compromete a fornecer informações verdadeiras, precisas e manter seus dados atualizados. O uso indevido do portal pode resultar na suspensão do acesso.</p>
+
+                <h3>4. Disponibilidade</h3>
+                <p>Nos esforçamos para manter o portal disponível 24 horas por dia, 7 dias por semana, mas não garantimos funcionamento ininterrupto, livre de erros ou indisponibilidades para manutenção.</p>
+
+                <h3>5. Limitação de Responsabilidade</h3>
+                <p>Não nos responsabilizamos por falhas de conectividade do usuário, informações incorretas fornecidas pelo usuário ou por danos decorrentes do uso inadequado do portal.</p>
+            `
+        };
+
+        function openModal(type) {
+            const overlay = document.getElementById('modalOverlay');
+            const content = document.getElementById('modalContent');
+            content.innerHTML = modalContent[type];
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (!event || event.target.id === 'modalOverlay' || event.target.classList?.contains('modal-close')) {
+                document.getElementById('modalOverlay').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+
+    <!-- BOTÃO WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/5527920022518?text=Ol%C3%A1%21%20Vim%20pelo%20Portal%20do%20Cliente%20e%20gostaria%20de%20falar%20com%20um%20especialista." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <div class="whatsapp-tooltip">Falar no WhatsApp</div>
+
 </body>
 </html>
